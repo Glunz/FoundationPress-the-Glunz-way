@@ -1,0 +1,15 @@
+@charset "UTF-8";
+
+/*
+  Write your Backend Editor Styles in here.
+*/
+
+body#tinymce.wp-editor {
+
+	@import "../components/foundation/scss/foundation/components/type";
+	@import "config/settings";
+	@import "config/custom-settings";
+
+	font-family: $body-font-family;
+
+}

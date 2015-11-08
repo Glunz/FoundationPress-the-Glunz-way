@@ -48,4 +48,7 @@ require_once( 'library/custom-nav.php' );
 /** Add protocol relative theme assets */
 require_once( 'library/protocol-relative-theme-assets.php' );
 
+/** Add Custom Functions File --> Put your Functions in here! */
+require_once( 'library/custom-functions.php' );
+
 ?>

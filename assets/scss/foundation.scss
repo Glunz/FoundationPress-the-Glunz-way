@@ -52,11 +52,19 @@
 @import "../components/foundation/scss/foundation/components/visibility";
 
 /*
-  Font Awesome - (http://fontawesome.io/) :
+  Elusive Icons - (http://elusiveicons.com/) :
   Feel free to remove the import statement below if you don't plan to use icon-fonts in your project
 */
 
-@import "../components/fontawesome/scss/font-awesome.scss";
+@import "../components/elusive-icons/scss/elusive-icons.scss";
+
+/*
+  Slick Carousel - (http://kenwheeler.github.io/slick/) :
+  Feel free to remove the import statement below if you don't plan to use a Slider in your project
+*/
+
+@import "../components/slick-carousel/slick/slick.scss";
+@import "../components/slick-carousel/slick/slick-theme.scss"; // Remove this Line if you don't want to use Slick Theme
 
 
 /*

@@ -28,6 +28,9 @@ if ( ! function_exists( 'foundationpress_scripts' ) ) :
 	// CDN hosted jQuery placed in the header, as some plugins require that jQuery is loaded in the header.
 	wp_enqueue_script( 'jquery', '//ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js', array(), '2.1.0', false );
 
+	// Custom my-functions.js placed in the Header.
+	wp_enqueue_script( 'my-functions', get_template_directory_uri() . '/assets/javascript/custom/my-functions.js', array(), '1.0', false );
+
 	// If you'd like to cherry-pick the foundation components you need in your project, head over to Gruntfile.js and see lines 67-88.
 	// It's a good idea to do this, performance-wise. No need to load everything if you're just going to use the grid anyway, you know :)
 	wp_enqueue_script( 'foundation', get_template_directory_uri() . '/assets/javascript/foundation.js', array('jquery'), '5.5.2', true );
@@ -41,5 +44,16 @@ if ( ! function_exists( 'foundationpress_scripts' ) ) :
 
 	add_action( 'wp_enqueue_scripts', 'foundationpress_scripts' );
 endif;
+
+
+/**
+ * Enqueue Stylesheet for the Wordpress Editor
+ */
+
+function foundationpress_add_editor_styles() {
+  add_editor_style( 'assets/stylesheets/custom-editor-style.css' );
+}
+
+add_action( 'admin_init', 'foundationpress_add_editor_styles' );
 
 ?>

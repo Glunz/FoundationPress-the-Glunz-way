@@ -44,7 +44,8 @@ module.exports = function (grunt) {
 					outputStyle: 'compressed'
 				},
 				files: {
-					'assets/stylesheets/foundation.css': 'assets/scss/foundation.scss'
+					'assets/stylesheets/foundation.css': 'assets/scss/foundation.scss',
+					'assets/stylesheets/custom-editor-style.css': 'assets/scss/custom-editor-style.scss',
 				}
 			}
 
@@ -60,26 +61,49 @@ module.exports = function (grunt) {
 				dest: 'assets/javascript/vendor/'
 			},
 
-			iconfonts: {
+			elusiveicons: {
 				expand: true,
-				cwd: 'assets/components/fontawesome/fonts',
+				cwd: 'assets/components/elusive-icons/fonts',
 				src: ['**'],
 				dest: 'assets/fonts/'
-			}
+			},
+
+			slickCarousel: {
+				expand: true,
+				cwd: 'assets/components/slick-carousel/slick/fonts',
+				src: ['**'],
+				dest: 'assets/fonts/'
+			},
 
 		},
 
 		'string-replace': {
 
-			fontawesome: {
+			elusiveicons: {
 				files: {
-					'assets/fontawesome/scss/_variables.scss': 'assets/fontawesome/scss/_variables.scss'
+					'assets/elusive-icons/scss/_variables.scss': 'assets/elusive-icons/scss/_variables.scss'
 				},
 
 				options: {
 					replacements: [
 						{
 							pattern: '../fonts',
+							replacement: '../assets/fonts'
+						}
+					]
+				}
+
+			},
+
+			slickCarousel: {
+				files: {
+					'assets/slick-carousel/slick/slick-theme.scss': 'assets/slick/slick-theme.scss'
+				},
+
+				options: {
+					replacements: [
+						{
+							pattern: './fonts',
 							replacement: '../assets/fonts'
 						}
 					]
@@ -121,7 +145,8 @@ module.exports = function (grunt) {
 					'assets/components/foundation/js/foundation/foundation.topbar.js',
 
 					// Include your own custom scripts (located in the custom folder)
-					'assets/javascript/custom/*.js'
+					'assets/javascript/custom/*.js',
+					'!assets/javascript/custom/my-functions.js',
 
 				],
 
@@ -143,6 +168,27 @@ module.exports = function (grunt) {
 
 		},
 
+		svgstore: {
+		  options: {
+		    prefix : 'sprite-', // This will prefix each <symbol> ID
+		    inheritviewbox : false,
+      	svg: {
+      	  id : 'sprite-container',
+        	xmlns : 'http://www.w3.org/2000/svg',
+        	style : 'display: none;',
+      	},
+    //	symbol: {
+    //		viewBox : '0 0 100 100', // Set your default SVG Viewport
+    //		style: 'width: 100px; height: 100px;', // Set your default Size
+    //	},
+		  },
+		  sprite: {
+				files: {
+				  'assets/images/sprite/sprite.svg': ['assets/images/sprite/svgs/*.svg']
+				}
+		  }
+		},
+
 		watch: {
 			grunt: {files: ['Gruntfile.js']},
 
@@ -160,6 +206,14 @@ module.exports = function (grunt) {
 				options: {
 					livereload: true
 				}
+			},
+
+			svg: {
+				files: 'assets/images/sprite/svgs/*.svg',
+				tasks: ['svgstore'],
+				options: {
+					livereload: true
+				},
 			},
 
 			all: {
@@ -211,10 +265,11 @@ module.exports = function (grunt) {
 	grunt.loadNpmTasks('grunt-contrib-uglify');
 	grunt.loadNpmTasks('grunt-string-replace');
 	grunt.loadNpmTasks('grunt-contrib-compress');
+	grunt.loadNpmTasks('grunt-svgstore');
 	grunt.loadNpmTasks('grunt-browser-sync');
 
 	grunt.registerTask('package', ['compress:main']);
-	grunt.registerTask('build', ['copy', 'string-replace:fontawesome', 'sass', 'postcss', 'concat', 'uglify']);
+	grunt.registerTask('build', ['copy', 'string-replace:elusiveicons', 'sass', 'postcss', 'concat', 'svgstore', 'uglify']);
 	grunt.registerTask('browser-sync', ['browserSync', 'watch']);
 	grunt.registerTask('default', ['watch']);
 };
