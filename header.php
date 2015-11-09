@@ -15,9 +15,8 @@
 	<head>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
 		<?php include( 'assets/images/sprite/sprite.svg' ); // Include generated SVG Sprite ?>
-
+		<?php get_template_part( 'parts/header-meta' ); // Include additional meta information in the header ?>
 		<?php wp_head(); ?>
 	</head>
 	<body <?php body_class(); ?>>

@@ -48,6 +48,9 @@ require_once( 'library/custom-nav.php' );
 /** Add protocol relative theme assets */
 require_once( 'library/protocol-relative-theme-assets.php' );
 
+/** Add things to the wp_head in this file */
+require_once( 'library/wp-head.php' );
+
 /** Add Custom Functions File --> Put your Functions in here! */
 require_once( 'library/custom-functions.php' );
 

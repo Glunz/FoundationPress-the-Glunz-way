@@ -56,4 +56,16 @@ function foundationpress_add_editor_styles() {
 
 add_action( 'admin_init', 'foundationpress_add_editor_styles' );
 
+
+/**
+ * Add relative WordPress path for use in JavaScript to Header 
+ * Example: src="'+templateUrl+'/images/up.png"
+ */
+
+function add_relative_wp_path_for_javascript() {
+	echo '<script type="text/javascript">var templateUrl =' . get_bloginfo("template_url") . '; </script>';
+}
+
+add_action('wp_head', 'add_relative_wp_path_for_javascript');
+
 ?>
