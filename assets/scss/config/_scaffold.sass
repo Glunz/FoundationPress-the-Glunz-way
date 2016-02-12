@@ -1,0 +1,271 @@
+@charset "UTF-8"
+// scaffold
+body
+  min-width: 860px
+
+//
+// Font
+h1, h2, h3
+  text-align: center
+
+h1, h2
+  position: relative
+  display: block
+  width: 600px
+  left: 50%
+  margin-left: -300px
+
+h1
+  font-weight: $font-weight-bold
+  line-height: 1.2em
+h2
+  margin-bottom: 50px
+h3
+  font-weight: $font-weight-bold
+
+h4
+  color: $blue
+
+//
+// Links
+a
+  color: $link
+  outline: 0
+  text-decoration: none
+  &:hover, &:active, &:focus
+    color: $link
+  &:hover, &:visited, &:active, &:focus
+    outline: 0
+    text-decoration: underline
+
+.cleanlink
+  text-decoration: none
+  &:hover, &:visited, &:active, &:focus
+    outline: 0
+    text-decoration: none
+
+.image-link
+  display: inline-block
+  max-width: 100%
+
+//
+// Language Switcher
+.top-bar-section ul.language-switch
+  //margin-left: 20px
+  li
+    position: relative
+    margin-left: 10px
+    a
+      padding: 0px !important
+    &:after
+      content: "/"
+      display: block
+      position: absolute
+      top: 9px
+      right: -9px
+      color: $white
+      font-weight: bold
+    &:last-child:after
+      content: ""
+
+//
+// Global Style-Class
+.clickable
+  cursor: pointer
+.centering
+  text-align: center !important
+.middle
+  margin-left: auto !important
+  margin-right: auto !important
+.text-right
+  text-align: right !important
+.no-padding
+  padding: 0px !important
+.no-padding-margin
+  padding: 0px !important
+  margin: 0px !important
+.background-cover
+  //background: url('#{$img-path}/1x12.jpg') no-repeat top center scroll
+  background: url('') no-repeat center center scroll
+  -webkit-background-size: cover
+  -moz-background-size: cover
+  -o-background-size: cover
+  background-size: cover
+.fullscreenbackground-image
+  display: block
+  position: fixed
+  height: 100%
+  width: 100%
+  top: 0px
+  left: 0px
+  z-index: -999
+  @extend .background-cover
+.fullscreen-image
+  @extend .fullscreenbackground-image
+  display: block
+  position: relative
+.responsive-image
+  width: 100%
+svg
+  max-height: 100%
+
+hr
+
+hr.smal
+  @extend hr
+  border-top: 20px solid transparent
+
+hr.line
+  border-top: 1px solid $black
+
+.background-weiss
+  background-color: $white
+
+.small-row
+  max-width: 80rem
+
+.table-container
+  display: table
+  position: relative
+  width: 100%
+
+//
+// Global Element
+.button
+  padding: 0.5em 3em 0.5em 3em
+
+.alpbutton
+  display: inline-block
+  position: relative
+  min-height: 164px
+  width: 385px
+  padding: 30px 20px 40px 20px
+  border: 1px solid $blue
+  font-size: 2.4rem
+  line-height: 2.6rem
+  text-align: center
+  color: $blue
+  &:hover
+    color: $white
+    background-color: $blue
+  &.centerbutton
+    left: 50%
+    margin-left: -193px
+
+// Triangle
+.arrow-up
+  width: 0
+  height: 0
+  border-left: 10px solid transparent
+  border-right: 10px solid transparent
+  border-bottom: 10px solid $black
+.arrow-down
+  width: 0
+  height: 0
+  border-left: 10px solid transparent
+  border-right: 10px solid transparent
+  border-top: 10px solid $black
+.arrow-right
+  width: 0
+  height: 0
+  border-top: 10px solid transparent
+  border-bottom: 10px solid transparent
+  border-left: 10px solid $black
+.arrow-left
+  width: 0
+  height: 0
+  border-top: 10px solid transparent
+  border-bottom: 10px solid transparent
+  border-right: 10px solid $black
+
+.border-arrow-down
+  &:before, &:after
+    content: ""
+    position: absolute
+    width: 0
+    height: 0
+    border-style: solid
+    border-color: transparent
+    border-bottom: 0
+  &:before
+    bottom: -17px
+    left: 21px
+    border-top-color: $black
+    border-width: 17px
+  &:after
+    bottom: -14px
+    left: 22px
+    border-top-color: $white
+    border-width: 16px
+
+.border-arrow-left
+  &:before, &:after
+    content: ""
+    position: absolute
+    width: 0
+    height: 0
+    border-style: solid
+    border-color: transparent
+    border-left: 0
+  &:before
+    top: 33px
+    left: 124px
+    border-right-color: $black
+    border-width: 18px
+  &:after
+    top: 35px
+    left: 127px
+    border-right-color: $white
+    border-width: 16px
+
+
+//
+// Sprite
+#sprite-container
+  display: none
+  width: 0px
+  height: 0px
+.sprite-item
+  display: inline-block
+  max-width: 100%
+  width: 306px
+  height: 137px
+.sprite-AlpWeek_Logo_1, .sprite-AlpWeek_Logo_2, .sprite-AlpWeek_Logo_3, .sprite-AlpWeek_Logo_4, .sprite-AlpWeek_Logo_5
+  margin-bottom: 10px
+.sprite-AlpWeek_Logo_1
+  height: 112px
+  width: 250px
+.sprite-AlpWeek_Logo_2
+  height: 104px
+  width: 250px
+.sprite-AlpWeek_Logo_3
+  height: 108px
+  width: 250px
+.sprite-AlpWeek_Logo_4
+  height: 135px
+  width: 250px
+.sprite-AlpWeek_Logo_5
+  height: 145px
+  width: 250px
+
+
+.sprite-AlpWeek_Logo_blue_1
+  width: 197px
+  height: 60px
+  margin: 20px 0px 10px 0px
+.sprite-AlpWeek_Logo_blue_2
+  width: 225px
+  height: 60px
+  margin: 20px 0px 10px 0px
+.sprite-AlpWeek_Logo_blue_3
+  width: 216px
+  height: 60px
+  margin: 20px 0px 10px 0px
+.sprite-AlpWeek_Logo_blue_4
+  width: 161px
+  height: 60px
+  margin: 20px 0px 10px 0px
+.sprite-AlpWeek_Logo_blue_5
+  width: 147px
+  height: 60px
+  margin: 20px 0px 10px 0px

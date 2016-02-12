@@ -4,7 +4,7 @@
 */
 
 // We use these to define default font stacks
-$font-family-sans-serif: "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif;
+$font-family-sans-serif: 'Titillium Web', Arial, sans-serif;
 $font-family-serif: Georgia, Cambria, "Times New Roman", Times, serif;
 $font-family-monospace: Consolas, "Liberation Mono", Courier, monospace;
 
@@ -34,8 +34,8 @@ $jet         : #222222;
 $black       : #000000;
 
 // We use these as default colors throughout
-$primary-color: #008CBA;
-$secondary-color: #e7e7e7;
+$primary-color: $blue;
+$secondary-color: $green;
 $alert-color: #f04124;
 $success-color: #43AC6A;
 $warning-color: #f08a24;
@@ -43,7 +43,7 @@ $info-color: #a0d3e8;
 
 // We use these to control various global styles
 $body-bg: $white;
-$body-font-color: $jet;
+$body-font-color: $black;
 $body-font-family: $font-family-sans-serif;
 $body-font-weight: $font-weight-normal;
 $body-font-style: normal;
@@ -58,10 +58,10 @@ $topbar-link-color-active: $white;
 $topbar-link-color-active-hover: $white;
 
 //$topbar-link-bg: $topbar-bg;
-$topbar-link-bg-hover: $jet;
-$topbar-link-bg-color-hover: $jet;
-$topbar-link-bg-active: $jet;
-$topbar-link-bg-active-hover: scale-color($jet, $lightness: -14%);
+$topbar-link-bg-hover: $green;
+$topbar-link-bg-color-hover: $green;
+$topbar-link-bg-active: $green;
+$topbar-link-bg-active-hover: $green;
 
 // Media query breakpoints
 $small-breakpoint:  em-calc(640);
@@ -69,3 +69,208 @@ $medium-breakpoint: em-calc(1024);
 $topbar-breakpoint: em-calc(820);
 $large-breakpoint:  em-calc(1440);
 $xlarge-breakpoint: em-calc(1920);
+
+
+// 34. Top Bar
+// - - - - - - - - - - - - - - - - - - - - - - - - -
+
+// Background color for the top bar
+$topbar-bg-color: $green;
+$topbar-bg: $topbar-bg-color;
+
+// Height and margin
+// $topbar-height: rem-calc(45);
+// $topbar-margin-bottom: 0;
+
+// Set the link colors and styles for top-level nav
+// $topbar-link-color: $white;
+// $topbar-link-color-hover: $white;
+// $topbar-link-color-active: $white;
+// $topbar-link-color-active-hover: $white;
+// $topbar-link-weight: $font-weight-normal;
+$topbar-link-font-size: rem-calc(18);
+$topbar-link-hover-lightness: 0%; // Darken by 10%
+// $topbar-link-bg: $topbar-bg;
+// $topbar-link-bg-hover: $jet;
+// $topbar-link-bg-color-hover: $charcoal;
+// $topbar-link-bg-active: $primary-color;
+// $topbar-link-bg-active-hover: scale-color($primary-color, $lightness: -14%);
+// $topbar-link-font-family: $body-font-family;
+// $topbar-link-text-transform: none;
+// $topbar-link-padding: ($topbar-height / 3);
+// $topbar-back-link-size: rem-calc(18);
+// $topbar-link-dropdown-padding: rem-calc(20);
+// $topbar-button-font-size: .75rem;
+// $topbar-button-top: 7px;
+
+// Style the top bar dropdown elements
+// $topbar-dropdown-bg: $oil;
+// $topbar-dropdown-link-color: $white;
+// $topbar-dropdown-link-color-hover: $topbar-link-color-hover;
+// $topbar-dropdown-link-bg: $oil;
+// $topbar-dropdown-link-bg-hover: $jet;
+// $topbar-dropdown-link-weight: $font-weight-normal;
+// $topbar-dropdown-toggle-size: 5px;
+// $topbar-dropdown-toggle-color: $white;
+// $topbar-dropdown-toggle-alpha: .4;
+
+// $topbar-dropdown-label-color: $monsoon;
+// $topbar-dropdown-label-text-transform: uppercase;
+// $topbar-dropdown-label-font-weight: $font-weight-bold;
+// $topbar-dropdown-label-font-size: rem-calc(10);
+// $topbar-dropdown-label-bg: $oil;
+
+// Top menu icon styles
+// $topbar-menu-link-transform: uppercase;
+// $topbar-menu-link-font-size: rem-calc(13);
+// $topbar-menu-link-weight: $font-weight-bold;
+// $topbar-menu-link-color: $white;
+// $topbar-menu-icon-color: $white;
+// $topbar-menu-link-color-toggled: $jumbo;
+// $topbar-menu-icon-color-toggled: $jumbo;
+// $topbar-menu-icon-position: $opposite-direction; // Change to $default-float for a left menu icon
+
+// Transitions and breakpoint styles
+// $topbar-transition-speed: 300ms;
+// Using rem-calc for the below breakpoint causes issues with top bar
+$topbar-breakpoint: #{lower-bound(0px)}; // Change to 9999px for always mobile layout
+// $topbar-media-query: "#{$screen} and (min-width:#{lower-bound($topbar-breakpoint)})";
+
+// Top-bar input styles
+// $topbar-input-height: rem-calc(28);
+
+// Divider Styles
+$topbar-divider-border-bottom: solid 1px $green;
+$topbar-divider-border-top: solid 1px $green;
+
+// Sticky Class
+// $topbar-sticky-class: ".sticky";
+// $topbar-arrows: true; //Set false to remove the triangle icon from the menu item
+// $topbar-dropdown-arrows: true; //Set false to remove the \00bb >> text from dropdown subnavigation li//
+
+
+
+// b. Grid
+// - - - - - - - - - - - - - - - - - - - - - - - - -
+
+// $include-html-grid-classes: $include-html-classes;
+// $include-xl-html-grid-classes: false;
+
+$row-width: rem-calc(800);
+// $total-columns: 12;
+// $column-gutter: rem-calc(30);
+
+
+
+// e. Typography
+// - - - - - - - - - - - - - - - - - - - - - - - - -
+
+// We use these to control header font styles
+$header-font-family: $body-font-family;
+$header-font-weight: $font-weight-normal;
+$header-font-style: normal;
+$header-font-color: $black;
+$header-line-height: 1.4;
+$header-top-margin: .2rem;
+$header-bottom-margin: .5rem;
+$header-text-rendering: optimizeLegibility;
+
+// We use these to control header font sizes
+$h1-font-size: rem-calc(44);
+$h2-font-size: rem-calc(20);
+$h3-font-size: 1rem;
+$h4-font-size: 1rem;
+$h5-font-size: 1rem;
+$h6-font-size: 1rem;
+
+// We use these to control header size reduction on small screens
+$h1-font-reduction: rem-calc(10);
+$h2-font-reduction: rem-calc(10);
+$h3-font-reduction: 0;
+$h4-font-reduction: 0;
+$h5-font-reduction: 0;
+$h6-font-reduction: 0;
+
+
+
+
+
+// 11. Forms
+// - - - - - - - - - - - - - - - - - - - - - - - - -
+
+// $include-html-form-classes: $include-html-classes;
+
+// We use this to set the base for lots of form spacing and positioning styles
+// $form-spacing: rem-calc(16);
+
+// We use these to style the labels in different ways
+// $form-label-pointer: pointer;
+$form-label-font-size: rem-calc(15);
+// $form-label-font-weight: $font-weight-normal;
+// $form-label-line-height: 1.5;
+// $form-label-font-color: scale-color($black, $lightness: 30%);
+// $form-label-small-transform: capitalize;
+// $form-label-bottom-margin: 0;
+// $input-font-family: inherit;
+// $input-font-color: rgba(0,0,0,0.75);
+$input-font-size: rem-calc(15);
+$input-bg-color: $lgray;
+$input-focus-bg-color: scale-color($lgray, $lightness: -2%);
+$input-border-color: scale-color($white, $lightness: -15%);
+$input-focus-border-color: scale-color($white, $lightness: -30%);
+// $input-border-style: solid;
+// $input-border-width: 1px;
+// $input-border-radius: $global-radius;
+// $input-disabled-bg: $gainsboro;
+// $input-disabled-cursor: $cursor-default-value;
+// $input-box-shadow: inset 0 1px 2px rgba(0,0,0,0.1);
+// $input-include-glowing-effect: false;
+
+// We use these to style the fieldset border and spacing.
+// $fieldset-border-style: solid;
+// $fieldset-border-width: 1px;
+// $fieldset-border-color: $gainsboro;
+// $fieldset-padding: rem-calc(20);
+// $fieldset-margin: rem-calc(18 0);
+
+// We use these to style the legends when you use them
+// $legend-bg: $white;
+// $legend-font-weight: $font-weight-bold;
+// $legend-padding: rem-calc(0 3);
+
+// We use these to style the prefix and postfix input elements
+// $input-prefix-bg: scale-color($white, $lightness: -5%);
+// $input-prefix-border-color: scale-color($white, $lightness: -20%);
+// $input-prefix-border-size: 1px;
+// $input-prefix-border-type: solid;
+// $input-prefix-overflow: hidden;
+// $input-prefix-font-color: $oil;
+// $input-prefix-font-color-alt: $white;
+
+// We use this setting to turn on/off HTML5 number spinners (the up/down arrows)
+// $input-number-spinners: true;
+
+// We use these to style the error states for inputs and labels
+// $input-error-message-padding: rem-calc(6 9 9);
+// $input-error-message-top: -1px;
+// $input-error-message-font-size: rem-calc(12);
+// $input-error-message-font-weight: $font-weight-normal;
+// $input-error-message-font-style: italic;
+// $input-error-message-font-color: $white;
+// $input-error-message-bg-color: $alert-color;
+// $input-error-message-font-color-alt: $oil;
+
+// We use this to style the glowing effect of inputs when focused
+// $glowing-effect-fade-time: .45s;
+// $glowing-effect-color: $input-focus-border-color;
+
+// We use this to style the transition when inputs are focused and when the glowing effect is disabled.
+// $input-transition-fade-time: 0.15s;
+// $input-transition-fade-timing-function: linear;
+
+// Select variables
+// $select-bg-color: $ghost;
+// $select-hover-bg-color: scale-color($select-bg-color, $lightness: -3%);
+
+
+

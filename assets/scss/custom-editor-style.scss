@@ -6,9 +6,11 @@
 
 body#tinymce.wp-editor {
 
-	@import "../components/foundation/scss/foundation/components/type";
+  @import "config/mixins";
+  @import "config/font";
 	@import "config/settings";
 	@import "config/custom-settings";
+  @import "../components/foundation/scss/foundation/components/type";
 
 	font-family: $body-font-family;
 

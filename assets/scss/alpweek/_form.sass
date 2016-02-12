@@ -1,0 +1,41 @@
+@charset "UTF-8"
+// Form
+.wpcf7-form
+  ::-webkit-input-placeholder
+      color:    $aluminum
+  :-moz-placeholder
+     color:    $aluminum
+     opacity:  1
+  ::-moz-placeholder
+     color:    $aluminum
+     opacity:  1
+  :-ms-input-placeholder
+     color:    $aluminum
+
+  label
+    margin-bottom: 20px
+  input
+    margin-bottom: 5px
+
+  .wpcf7-list-item
+    display: inline-block
+    width: 9%
+    margin: 0px 53px
+    label
+      text-align: center
+    .wpcf7-list-item-label
+      margin-top: 10px
+      display: block
+    &.first
+      margin-left: 0px !important
+    &.last
+      margin-right: 0px !important
+  .big-checkboxes
+    .wpcf7-list-item
+      width: 16% !important
+      margin: 0px 30px
+
+  span.wpcf7-not-valid-tip
+    color: $alert-color !important
+  div.wpcf7-validation-errors
+    border: 2px solid $alert-color

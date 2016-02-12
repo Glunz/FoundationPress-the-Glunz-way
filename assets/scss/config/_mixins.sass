@@ -1,0 +1,203 @@
+@charset "UTF-8"
+// mixins
+
+//
+// Color
+$white:       #FFFFFF
+$black:       #000000
+$gray:        #5B5B5B
+$lgray:       #FAF8F8
+//
+$blue:        #0098BA
+$green:       #55EB73
+//  
+$lauftext:    $black
+$header:      $black
+$link:        $blue
+$hover:       $black
+$lead:        $blue
+$navi:        $white
+$navi-hover:  $black
+//
+// Path Variables
+$font-path: '../fonts/'
+$img-path: '../images'
+
+//
+// Font
+// =glunz()
+//   font-family: 'glunzRegular', "Helvetica Neue"
+//   font-weight: normal
+//   font-style: normal
+
+// =glunz-light()
+//   font-family: 'glunzLight', "Helvetica Neue"
+//   font-weight: normal
+//   font-style: normal
+
+// =glunz-bold()
+//   font-family: 'glunzBold', "Helvetica Neue"
+//   font-weight: normal
+//   font-style: normal
+
+// $glunz:       'glunzRegular', "Helvetica Neue"
+// $glunz-light: 'glunzLight', "Helvetica Neue"
+// $glunz-bold:  'glunzBold', "Helvetica Neue"
+
+//
+// Style
+=round($value...)
+  -webkit-border-radius: $value
+  -moz-border-radius: $value
+  -ms-border-radius: $value
+  -o-border-radius: $value
+  border-radius: $value
+
+=boxshadow($value...)
+  -webkit-box-shadow: $value
+  box-shadow: $value
+
+//
+// Animation
+=transform($value...)
+  -moz-transform: $value
+  -webkit-transform: $value
+  -o-transform: $value
+  -ms-transform: $value
+  transform: $value
+
+=mytransition($transition...)
+  -moz-transition:    $transition
+  -o-transition:      $transition
+  -webkit-transition: $transition
+  transition:         $transition
+
+=animation($value...)
+  -webkit-animation: $value
+  -moz-animation: $value
+  -o-animation: $value
+  -ms-animation: $value
+  animation: $value
+
+// prefix declarations
+=prefixed($property, $value)
+  -webkit-#{$property}: #{$value}
+  #{$property}: #{$value}
+
+// Hacks
+=hardwareAccel()
+  +prefixed(transform, translateZ(0))
+=improveAntiAlias()
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0)
+=hacks()
+  +hardwareAccel()
+  +improveAntiAlias()
+
+// Syntax (horizontal|vertical|inherit), (start|end|center|justify), (start|end|center|baseline|stretch)
+=flexbox($orient:horizontal, $pack:center, $align:center)
+  display: -ms-flexbox
+  -ms-box-orient: $orient
+  -ms-flex-pack: $pack
+  -ms-flex-align: $align
+  display: -moz-box
+  -moz-box-orient: $orient
+  -moz-box-pack: $pack
+  -moz-box-align: $align
+  display: -webkit-box
+  -webkit-box-orient: $orient
+  -webkit-box-pack: $pack
+  -webkit-box-align: $align
+  display: box
+  box-orient: $orient
+  box-pack: $pack
+  box-align: $align
+
+=box-flex($value:0)
+  -ms-box-flex: $value
+  -moz-box-flex: $value
+  -webkit-box-flex: $value
+  box-flex: $value
+
+//
+// Retina
+=image($image_name, $w: auto, $h: auto, $extention: '.jpg')
+  background-image: url('../images/' + $image_name + $extention)
+  $x2img : $image_name + '@2x' + $extention
+  @media all and (-webkit-min-device-pixel-ratio : 1.5)
+    background-image: url('../images/' + $x2img)
+    background-size: $w $h
+
+//
+// RGBA
+=rgba($r,$g,$b,$a,$fallback)
+  background-color: $fallback
+  background-color: rgba($r, $g, $b, $a)
+
+//
+// FullScreen Background
+=fullscreen($image_path, $exten: '.jpg')
+  $image_p : '/assets/' + $image_path + '/'
+  width: 100%
+  height: 100%
+  background: url($image_p + '_1200' + $exten) no-repeat top center scroll
+  -webkit-background-size: cover
+  -moz-background-size: cover
+  -o-background-size: cover
+  background-size: cover
+  $image_p2x : $image_p + '_1200' + '@2x' + $exten
+  @media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min--moz-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 2 / 1) and (min-width: 320px), only screen and (min-device-pixel-ratio: 2), only screen and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx)
+    background-image: url($image_p2x)
+  @media only screen and (min-width: 1201px)
+    background-image: url($image_p + '_1440' + $exten)
+  @media only screen and (-webkit-min-device-pixel-ratio: 2) and (min-width: 1201px), only screen and (min--moz-device-pixel-ratio: 2) and (min-width: 1201px), only screen and (-o-min-device-pixel-ratio: 2 / 1) and (min-width: 1201px), only screen and (min-device-pixel-ratio: 2) and (min-width: 1201px), only screen and (min-resolution: 192dpi) and (min-width: 1201px), only screen and (min-resolution: 2dppx) and (min-width: 1201px)
+    background-image: url($image_p + '_1440' + '@2x' + $exten)
+  @media only screen and (min-width: 1441px)
+    background-image: url($image_p + '_1920' + $exten)
+  @media only screen and (-webkit-min-device-pixel-ratio: 2) and (min-width: 1441px), only screen and (min--moz-device-pixel-ratio: 2) and (min-width: 1441px), only screen and (-o-min-device-pixel-ratio: 2 / 1) and (min-width: 1441px), only screen and (min-device-pixel-ratio: 2) and (min-width: 1441px), only screen and (min-resolution: 192dpi) and (min-width: 1441px), only screen and (min-resolution: 2dppx) and (min-width: 1441px)
+    background-image: url($image_p + '_1440' + '@2x' + $exten)
+  @media only screen and (min-width: 1921px)
+    background-image: url($image_p + '_1440' + '@2x' + $exten)
+  // IE
+  $iepath : 'assets/images/' + $image_path + '/_1200' + $exten
+  filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='#{$iepath}', sizingMethod='scale')
+  -ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='" + $iepath + "', sizingMethod='scale')"
+
+//
+// background-size
+=background-size($value...)
+  -webkit-background-size: $value
+  -moz-background-size: $value
+  -o-background-size: $value
+  background-size: $value
+
+//
+// keyframes mixin
+=keyframes($name)
+  @-webkit-keyframes #{$name}
+    @content
+  @-moz-keyframes #{$name}
+    @content
+  @-ms-keyframes #{$name}
+    @content
+  @keyframes #{$name}
+    @content
+
+//
+// Hover animation up and down
++keyframes(hoveranimation)
+  50%
+    +prefixed(transform, translateY(-6px))
+  100%
+    +prefixed(transform, translateY(-12px))
+=hoveranimation($delay)
+  display: inline-block
+  +prefixed(transition-duration, .5s)
+  +prefixed(transition-property, transform)
+  +hacks()
+  +prefixed(transform, translateY(-12px))
+  +prefixed(animation-name, hoveranimation)
+  +prefixed(animation-duration, 1.5s)
+  +prefixed(animation-delay, $delay)
+  +prefixed(animation-timing-function, ease-in-out)
+  +prefixed(animation-iteration-count, infinite)
+  +prefixed(animation-direction, alternate)

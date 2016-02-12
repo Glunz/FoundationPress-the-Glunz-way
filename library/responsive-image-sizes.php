@@ -1,36 +1,48 @@
 <?php
+/**
+ * Generate responsive Images for Interchange
+ *
+ * @package WordPress
+ * @subpackage FoundationPress
+ * @since FoundationPress 1.0
+ */
 
-// Add Image Sizes --> Customize or add your own
-add_image_size( 'size-s', 640, 640, false );
-add_image_size( 'size-m', 1024, 1024, false );
-add_image_size( 'size-l', 1440, 1440, false );
-add_image_size( 'size-xl', 1920, 1920, false );
-add_image_size( 'size-xxl', 2880, 2880, false );
+// Init the resolutions for fullscreen images
+add_image_size('fullscreen-small', 640, 640);
+add_image_size('fullscreen-medium', 1024, 1024);
+add_image_size('fullscreen-medium-retina', 2048, 2048);
+add_image_size('fullscreen-large', 1440, 1440);
+add_image_size('fullscreen-large-retina', 2880, 2880);
 
+// responsive background images
+function responsive_fullscreen_background_image($fieldname) {
+  $id = $fieldname;
+  $img_small = wp_get_attachment_image_src( $id, 'fullscreen-small' );
 
-// Use Foundation Interchange to replace Images by Screen Resolution
-function responsive_image($fieldID) {
-  $id = get_field($fieldID); // get Image ID of custom field
-  
-  // get array of each image size. [0] echoes the URL
-  $image_s    = wp_get_attachment_image_src( $id, 'size-s' ); 
-  $image_m    = wp_get_attachment_image_src( $id, 'size-m' ); 
-  $image_l    = wp_get_attachment_image_src( $id, 'size-l' );
-  $image_xl   = wp_get_attachment_image_src( $id, 'size-xl' );
-  $image_xxl  = wp_get_attachment_image_src( $id, 'size-xxl' );
+  $img_medium = wp_get_attachment_image_src( $id, 'fullscreen-medium' );
+  $img_medium_ret = wp_get_attachment_image_src( $id, 'fullscreen-medium-retina' );
 
-  // output the data
-  echo 'data-interchange="[' 
-  . $image_s[0] . ', (small)], ['            // 0-640
-  . $image_m[0] . ', (medium)], ['           // 640-1024
-  . $image_xl[0] . ', (medium_ret)], ['      // 640-1024 @2x
-  . $image_l[0] . ', (large)], ['            // 1024-1440
-  . $image_xxl[0] . ', (large_ret)], ['      // 1024-1440 @2x
-  . $image_xl[0] . ', (xlarge)], ['          // 1440-1920
-  . $image_xxl[0] . ', ($xlarge_ret)],'      // 1440-1920 @2x
-  . $image_xxl[0] . ', (xxlarge)]';          // 1920-2880
+  $img_large = wp_get_attachment_image_src( $id, 'fullscreen-large' );
+  $img_large_ret = wp_get_attachment_image_src( $id, 'fullscreen-large-retina' );
 
+  $img_xlarge = wp_get_attachment_image_src( $id, 'fullscreen-medium-retina' );
+  $img_xlarge_ret = wp_get_attachment_image_src( $id, 'fullscreen-large-retina' );
+
+  echo 'data-interchange="[';
+  echo $img_small[0];
+  echo ', (small)], [';
+  echo $img_medium[0];
+  echo ', (medium)], [';
+  echo $img_medium_ret[0];
+  echo ', (medium_ret)], [';
+  echo $img_large[0];
+  echo ', (large)], [';
+  echo $img_large_ret[0];
+  echo ', (large_ret)], [';
+  echo $img_xlarge[0];
+  echo ', (xlarge)], [';
+  echo $img_xlarge_ret[0];
+  echo ', (xlarge_ret)]"';
 }
-
 
 ?>

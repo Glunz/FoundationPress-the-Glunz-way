@@ -127,26 +127,26 @@ module.exports = function (grunt) {
 					'assets/components/foundation/js/foundation/foundation.js',
 
 					// Pick the components you need in your project
-					'assets/components/foundation/js/foundation/foundation.abide.js',
-					'assets/components/foundation/js/foundation/foundation.accordion.js',
-					'assets/components/foundation/js/foundation/foundation.alert.js',
-					'assets/components/foundation/js/foundation/foundation.clearing.js',
-					'assets/components/foundation/js/foundation/foundation.dropdown.js',
-					'assets/components/foundation/js/foundation/foundation.equalizer.js',
+					//'assets/components/foundation/js/foundation/foundation.abide.js',
+					//'assets/components/foundation/js/foundation/foundation.accordion.js',
+					//'assets/components/foundation/js/foundation/foundation.alert.js',
+					//'assets/components/foundation/js/foundation/foundation.clearing.js',
+					//'assets/components/foundation/js/foundation/foundation.dropdown.js',
+					//'assets/components/foundation/js/foundation/foundation.equalizer.js',
 					'assets/components/foundation/js/foundation/foundation.interchange.js',
-					'assets/components/foundation/js/foundation/foundation.joyride.js',
-					'assets/components/foundation/js/foundation/foundation.magellan.js',
-					'assets/components/foundation/js/foundation/foundation.offcanvas.js',
-					'assets/components/foundation/js/foundation/foundation.orbit.js',
-					'assets/components/foundation/js/foundation/foundation.reveal.js',
-					'assets/components/foundation/js/foundation/foundation.slider.js',
-					'assets/components/foundation/js/foundation/foundation.tab.js',
-					'assets/components/foundation/js/foundation/foundation.tooltip.js',
+					//'assets/components/foundation/js/foundation/foundation.joyride.js',
+					//'assets/components/foundation/js/foundation/foundation.magellan.js',
+					//'assets/components/foundation/js/foundation/foundation.offcanvas.js',
+					//'assets/components/foundation/js/foundation/foundation.orbit.js',
+					//'assets/components/foundation/js/foundation/foundation.reveal.js',
+					//'assets/components/foundation/js/foundation/foundation.slider.js',
+					//'assets/components/foundation/js/foundation/foundation.tab.js',
+					//'assets/components/foundation/js/foundation/foundation.tooltip.js',
 					'assets/components/foundation/js/foundation/foundation.topbar.js',
 
 					// Include your own custom scripts (located in the custom folder)
 					'assets/javascript/custom/*.js',
-					'!assets/javascript/custom/my-functions.js',
+					'!assets/javascript/custom/my-functions.js'
 
 				],
 
@@ -193,7 +193,7 @@ module.exports = function (grunt) {
 			grunt: {files: ['Gruntfile.js']},
 
 			sass: {
-				files: 'assets/scss/**/*.scss',
+				files: 'assets/scss/**/*.*',
 				tasks: ['sass'],
 				options: {
 					livereload: true
